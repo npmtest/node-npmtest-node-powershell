@@ -603,9 +603,11 @@ local.templateApidocHtml = '\
                     };
                     // coverage-hack
                     tmp();
-                    tmp.toString = function () {
-                        return text;
-                    };
+                    Object.defineProperties(tmp, { toString: { get: function () {
+                        return function () {
+                            return text;
+                        };
+                    } } });
                 }());
             }
             // normalize moduleMain
@@ -772,9 +774,7 @@ local.templateApidocHtml = '\
                     Object.keys(moduleDict[prefix]).forEach(function (key) {
                         // bug-workaround - buggy electron getter / setter
                         try {
-                            if (!(/^\w[\w\-.]*?$/).test(key) ||
-                                    !moduleDict[prefix][key] ||
-                                    key === 'toString') {
+                            if (!(/^\w[\w\-.]*?$/).test(key) || !moduleDict[prefix][key]) {
                                 return;
                             }
                             tmp = element === 'prototype'
@@ -15102,6 +15102,13 @@ instruction\n\
             local.onReadyBefore();
         };
 
+        local.throwError = function () {
+        /*
+         * this function will throw an error
+         */
+            throw new Error();
+        };
+
         local.timeElapsedPoll = function (options) {
         /*
          * this function will poll options.timeElapsed
@@ -15118,13 +15125,6 @@ instruction\n\
             options = options || {};
             options.timeStart = timeStart || options.timeStart || Date.now();
             return options;
-        };
-
-        local.throwError = function () {
-        /*
-         * this function will throw an error
-         */
-            throw new Error();
         };
 
         local.tryCatchOnError = function (fnc, onError) {
