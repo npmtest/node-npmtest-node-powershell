@@ -1,6 +1,6 @@
 # npmtest-node-powershell
 
-#### test coverage for  [node-powershell (v3.1.1)](http://rannn505.github.io/node-powershell/)  [![npm package](https://img.shields.io/npm/v/npmtest-node-powershell.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-node-powershell) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-node-powershell.svg)](https://travis-ci.org/npmtest/node-npmtest-node-powershell)
+#### basic test coverage for  [node-powershell (v3.1.1)](http://rannn505.github.io/node-powershell/)  [![npm package](https://img.shields.io/npm/v/npmtest-node-powershell.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-node-powershell) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-node-powershell.svg)](https://travis-ci.org/npmtest/node-npmtest-node-powershell)
 
 #### Easily run PowerShell from your NodeJS app
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-node-powershell/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-node-powershell/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-node-powershell/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-node-powershell/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-node-powershell/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-node-powershell/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-node-powershell/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-node-powershell/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-node-powershell/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-node-powershell/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-node-powershell/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-node-powershell/build/coverage.html/index.html)
 
@@ -125,7 +125,8 @@
         "test:coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
         "version": "npm run build && git add -A"
     },
-    "version": "3.1.1"
+    "version": "3.1.1",
+    "bin": {}
 }
 ```
 
